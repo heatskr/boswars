@@ -41,6 +41,8 @@ def find(startdir, pattern):
     import fnmatch
     results = []
     for dirpath,dirnames,files in os.walk(startdir):
+       dirnames.sort()
+       files.sort()
        for f in files:
           # Ignore dot files.  GNU Emacs especially creates lock files
           # with names like ".#script.cpp".  Don't try to compile those.
